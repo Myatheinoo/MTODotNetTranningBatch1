@@ -327,7 +327,7 @@ interface IWalk
 {
     void Walk();
 }
-class Human : IAnimal,IWalk
+class Human : IAnimal, IWalk
 {
     public void Eat()
     {
