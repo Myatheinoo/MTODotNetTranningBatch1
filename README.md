@@ -1,0 +1,15 @@
+# DotNetTrainging
+- C# Basic
+- SQL Basic
+- Console App
+- Console App + DB (Memory Database)
+- Console App + DB(SQl Server)
+	- ADO.Net (CRUD)
+	- Dapper (CRUD) ORM
+	- EFCore (CRUD) ORM
+- Postman
+- ASP.Net Core Web API
+- HttpClient
+- RestSharp
+- Refit
+- Console App + API
