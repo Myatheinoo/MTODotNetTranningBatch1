@@ -1,7 +1,7 @@
 # DotNetTrainging
--[] C# Basic
--[] SQL Basic
--[] Console App
+- C# Basic
+- SQL Basic
+- Console App
 - Console App + DB (Memory Database)
 - Console App + DB(SQl Server)
 	- ADO.Net (CRUD)
