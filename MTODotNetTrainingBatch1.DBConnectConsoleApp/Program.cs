@@ -19,4 +19,6 @@ ProductService purchaseService = new ProductService();
 //purchaseService.Delete();
 //purchaseService.Login();
 //purchaseService.Detail(1);
+LoginDapperService loginDapperService = new LoginDapperService();
+loginDapperService.Read();
 Console.ReadLine();
