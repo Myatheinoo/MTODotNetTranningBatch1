@@ -1,12 +1,13 @@
 # DotNetTrainging
-- C# Basic
-- SQL Basic
-- Console App
-- Console App + DB (Memory Database)
-- Console App + DB(SQl Server)
+- [x] C# Basic
+- [x] SQL Basic
+- [x] Console App
+- [x] Console App + DB (Memory Database)
+- [x] Console App + DB(SQl Server)
 	- ADO.Net (CRUD)
 	- Dapper (CRUD) ORM
 	- EFCore (CRUD) ORM
+- WindowForm
 - Postman
 - ASP.Net Core Web API
 - HttpClient
