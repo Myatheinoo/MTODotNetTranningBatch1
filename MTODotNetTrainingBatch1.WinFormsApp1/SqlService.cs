@@ -10,7 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MTODotNetTrainingBatch1.WinFormsApp1
 {
-    public class QueryService
+    public class SqlService
     {
         private readonly SqlConnectionStringBuilder _stringBuilder = new SqlConnectionStringBuilder()
         {

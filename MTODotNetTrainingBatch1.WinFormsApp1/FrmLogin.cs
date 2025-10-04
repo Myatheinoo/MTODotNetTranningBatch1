@@ -4,18 +4,15 @@ using Microsoft.Data.SqlClient;
 
 namespace MTODotNetTrainingBatch1.WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class FrmLogin : Form
     {
-        private readonly QueryService _queryService;
-        public Form1()
+        private readonly SqlService _queryService;
+        public FrmLogin()
         {
             InitializeComponent();
-            _queryService = new QueryService();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            _queryService = new SqlService();
+            textUsername.Text = "Mya";
+            textPassword.Text = "123";
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -80,6 +77,19 @@ namespace MTODotNetTrainingBatch1.WinFormsApp1
             }
             MessageBox.Show("Login successful.");
 
+            AppSetting.CurrentUserId = Convert.ToInt32(dt.Rows[0]["Id"]);
+
+            textUsername.Clear();
+            textPassword.Clear();
+
+            this.Hide();
+
+            FrmMenu frmMenu = new FrmMenu();
+            frmMenu.ShowDialog();
+
+            this.Show();
+
+            textUsername.Focus();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
