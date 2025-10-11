@@ -39,15 +39,23 @@
             textBox4 = new TextBox();
             BtnSave = new Button();
             BtnCancel = new Button();
+            colCode = new DataGridViewTextBoxColumn();
+            colName = new DataGridViewTextBoxColumn();
+            colPrice = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
             // dgvData
             // 
+            dgvData.AllowUserToAddRows = false;
+            dgvData.AllowUserToDeleteRows = false;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { colCode, colName, colPrice, colQuantity });
             dgvData.Dock = DockStyle.Bottom;
             dgvData.Location = new Point(0, 352);
             dgvData.Name = "dgvData";
+            dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 62;
             dgvData.Size = new Size(959, 210);
             dgvData.TabIndex = 0;
@@ -152,6 +160,42 @@
             BtnCancel.UseVisualStyleBackColor = true;
             BtnCancel.Click += BtnCancel_Click;
             // 
+            // colCode
+            // 
+            colCode.DataPropertyName = "Code";
+            colCode.HeaderText = "Product Code";
+            colCode.MinimumWidth = 8;
+            colCode.Name = "colCode";
+            colCode.ReadOnly = true;
+            colCode.Width = 150;
+            // 
+            // colName
+            // 
+            colName.DataPropertyName = "Name";
+            colName.HeaderText = "Name";
+            colName.MinimumWidth = 8;
+            colName.Name = "colName";
+            colName.ReadOnly = true;
+            colName.Width = 150;
+            // 
+            // colPrice
+            // 
+            colPrice.DataPropertyName = "Price";
+            colPrice.HeaderText = "Price";
+            colPrice.MinimumWidth = 8;
+            colPrice.Name = "colPrice";
+            colPrice.ReadOnly = true;
+            colPrice.Width = 150;
+            // 
+            // colQuantity
+            // 
+            colQuantity.DataPropertyName = "Price";
+            colQuantity.HeaderText = "Quantity";
+            colQuantity.MinimumWidth = 8;
+            colQuantity.Name = "colQuantity";
+            colQuantity.ReadOnly = true;
+            colQuantity.Width = 150;
+            // 
             // FrmProduct
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -190,5 +234,9 @@
         private TextBox textBox4;
         private Button BtnSave;
         private Button BtnCancel;
+        private DataGridViewTextBoxColumn colCode;
+        private DataGridViewTextBoxColumn colName;
+        private DataGridViewTextBoxColumn colPrice;
+        private DataGridViewTextBoxColumn colQuantity;
     }
 }

@@ -100,9 +100,10 @@
             textPassword.Name = "textPassword";
             textPassword.Size = new Size(503, 39);
             textPassword.TabIndex = 5;
+            textPassword.UseSystemPasswordChar = true;
             textPassword.KeyDown += textPassword_KeyDown;
             // 
-            // Form1
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -113,7 +114,7 @@
             Controls.Add(label1);
             Controls.Add(BtnCancel);
             Controls.Add(BtnClick);
-            Name = "Form1";
+            Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);

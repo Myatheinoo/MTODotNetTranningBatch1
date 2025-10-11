@@ -1,0 +1,6 @@
+@MTODotNetTrainingBatch1.Project2.WebApplication1_HostAddress = http://localhost:5273
+
+GET {{MTODotNetTrainingBatch1.Project2.WebApplication1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -7,6 +7,8 @@
 	- ADO.Net (CRUD)
 	- Dapper (CRUD) ORM
 	- EFCore (CRUD) ORM
+		- dotnet tool install --global dotnet-ef
+		- dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=dbname;User ID=userid;Password=password;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models -c AppDbContext -t Table_Name -f
 - WindowForm
 - Postman
 - ASP.Net Core Web API

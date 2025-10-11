@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace MTODotNetTrainingBatch1.ConsoleApp3
+{
+    [Table("Tbl_Category")]
+    public class ProductCategory
+    {
+        [Key]
+        [Column("Id")]
+        public int CategoryId { get; set; }
+        [Column("Code")]
+        public string? Code {  get; set; }
+
+        [Column("Name")]
+        public string? Name { get; set; }
+    }
+
+    public class AppDbContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=.;Database=Purchase;User ID=sa;Password=sasa@123;TrustServerCertificate = true;");
+            }
+        }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+    }
+}

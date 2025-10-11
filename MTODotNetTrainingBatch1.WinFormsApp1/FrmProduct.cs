@@ -18,15 +18,20 @@ namespace MTODotNetTrainingBatch1.WinFormsApp1
         public FrmProduct()
         {
             InitializeComponent();
+            dgvData.AutoGenerateColumns = false;
             _sqlService = new SqlService();
         }
 
         private void FrmProduct_Load(object sender, EventArgs e)
         {
+            BindData();
+        }
+
+        public void BindData()
+        {
             DataTable dt = _sqlService.Query(ProductQuery.GetAllProduct);
             dgvData.DataSource = dt;
         }
-
         private void BtnSave_Click(object sender, EventArgs e)
         {
             string name = textBox1.Text.Trim();
@@ -51,6 +56,7 @@ namespace MTODotNetTrainingBatch1.WinFormsApp1
                 MessageBoxIcon.Information
                 );
             ClearData();
+            BindData();
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)

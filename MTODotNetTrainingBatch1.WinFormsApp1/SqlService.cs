@@ -44,6 +44,7 @@ namespace MTODotNetTrainingBatch1.WinFormsApp1
             connection.Open();
 
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddRange(parameters);
             int result = command.ExecuteNonQuery();
 
             connection.Close();
