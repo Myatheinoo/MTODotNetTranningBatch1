@@ -1,0 +1,60 @@
+﻿@{
+	ViewData["Title"] = "New Wallet";
+}
+
+<h1>Add New Wallet User</h1>
+<div class="container-fluid">
+		<div class="mb-3">
+			<label for="Username" class="form-label">User Name</label>
+		<input type="text" name="WalletName" class="form-control" id="WalletName">
+		</div>
+		<div class="mb-3">
+			<label for="Fullname" class="form-label">Full Name</label>
+		<input type="text" name="Username" class="form-control" id="Username">
+		</div>
+		<div class="mb-3">
+			<label for="MobileNumber" class="form-label">Mobile Number</label>
+		<input type="text" name="MobileNo" class="form-control" id="MobileNo">
+		</div>
+		<div class="mb-3">
+			<label for="Balance" class="form-label">Balance</label>
+			<input type="text" name="Balance" class="form-control" id="Balance">
+		</div>
+		<div class="mb-3">
+			<a href="/Wallet" class="btn btn-secondary">Cancel</a>
+			<button type="submit" class="btn btn-success" id="btnSave">Save</button>
+		</div>
+</div>
+
+@section scripts{
+	<script src="~/js/wallet.js"></script>
+	@* <script> *@
+
+	@* 	// $('#btnSave').click(function(){ *@
+	@* 	// 	let item = { *@
+	@* 	// 		WalletName: $('#WalletName').val(), *@
+	@* 	// 		Username: $('#Username').val(), *@
+	@* 	// 		MobileNo: $('#MobileNo').val(), *@
+	@* 	// 		Balance: $('#Balance').val(), *@
+	@* 	// 	}; *@
+
+	@* 	// 	$.ajax({ *@
+	@* 	// 		url: '/Wallet/Save', *@
+	@* 	// 		type: 'POST', *@
+	@* 	// 		data: {requestModel : item }, *@
+	@* 	// 		success: function(response) { *@
+	@* 	// 			console.log({response}); *@
+	@* 	// 			if(!response.IsSuccess){ *@
+	@* 	// 				alert("Error: " + response.Message); *@
+	@* 	// 				return; *@
+	@* 	// 			} *@
+	@* 	// 			alert(response.Message); *@
+	@* 	// 			window.location.href = "/Wallet/Index"; *@
+	@* 	// 		}, *@
+	@* 	// 		error: function(request, status, error) { *@
+	@* 	// 			alert(request.responseText); *@
+	@* 	// 		} *@
+	@* 	// 	}); *@
+	@* 	// }); *@
+	@* </script> *@
+}

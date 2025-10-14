@@ -1,0 +1,29 @@
+﻿@{
+	ViewData["Title"] = "New Wallet";
+}
+
+<h1>Add New Wallet User</h1>
+<div class="container-fluid">
+	<form method="post" action="/Wallet/Create">
+		<div class="mb-3">
+			<label for="UsernameFormControl" class="form-label">User Name</label>
+			<input type="text" name="WalletName" class="form-control" id="UsernameFormControl">
+		</div>
+		<div class="mb-3">
+			<label for="FullnameFormControl" class="form-label">Full Name</label>
+			<input type="text" name="Username" class="form-control" id="FullnameFormControl">
+		</div>
+		<div class="mb-3">
+			<label for="MobileNumberFormControl" class="form-label">Mobile Number</label>
+			<input type="text" name="MobileNo" class="form-control" id="MobileNumberFormControl">
+		</div>
+		<div class="mb-3">
+			<label for="BalanceFormControl" class="form-label">Balance</label>
+			<input type="text" name="Balance" class="form-control" id="BalanceFormControl">
+		</div>
+		<div class="mb-3">
+			<a href="/Wallet" class="btn btn-secondary">Cancel</a>
+			<button type="submit" class="btn btn-success" id="btnSave">Save</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,121 @@
+﻿
+
+<h1>Total Wallet User List <span id="txtCount"></span></h1>
+
+@* <a class="btn btn-outline-success" href="Wallet/Create">Create</a> *@
+<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#createModal">
+	Create
+</button>
+
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th>Action</th>
+			<th>No</th>
+			<th>User Name</th>
+			<th>Mobile Name</th>
+			<td>Balance</td>
+		</tr>
+	</thead>
+	<tbody id="tbDataTable">
+		
+
+	</tbody>
+</table>
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<partial name="~/Views/Wallet/CreateIndex.cshtml"/>
+			</div>
+			@* <div class="modal-footer"> *@
+			@* 	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> *@
+			@* 	<button type="button" class="btn btn-primary">Save changes</button> *@
+			@* </div> *@
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script src="~/js/common.js"></script>
+
+	<script src="~/js/Wallet.js"></script>
+	<script>
+
+		LoadData();
+
+		function LoadData(){
+			$.ajax({
+				url: '/Wallet/Index',
+				type: 'POST',
+				success: function(response) {
+					console.log({response});
+
+					$('#tbDataTable').html('');
+
+					let count = 0;
+					for(i = 0;i<response.Data.length;i++){
+
+						const item = response.Data[i];
+
+				    let row = `
+								<tr>
+									<td>
+										<button data-id="${item.WalletId}" class="btn btn-outline-danger btn-delete">Delete</button>
+										<a href="/Wallet/Edit/${item.WalletId}" class="btn btn-outline-warning">Edit</a></td>
+									<td>${++count}</td>
+									<td>${item.WalletName}</td>
+									<td>${item.MobileNo}</td>
+									<td>${item.Balance}</td>
+								</tr>`;
+
+					$('#tbDataTable').append(row);
+					}
+					BindDeleteClick();
+				},
+				error: function(request, status, error) {
+					alert(request.responseText);
+				}
+			});
+		}
+
+		function BindDeleteClick(){
+			$('.btn-delete').click(function(){
+
+				const id = $(this).data('id');
+
+				if(!confirm("Are you sure want to delete this wallet?")){
+					return;
+				}
+
+				const item = {
+					WalletId: id
+				};
+
+				$.ajax({
+					url: '/Wallet/Delete',
+					type: 'POST',
+					data: {requestModel : item },
+					success: function(response) {
+						console.log({response});
+						if(!response.IsSuccess){
+							alert("Error: " + response.Message);
+							return;
+						}
+						alert(response.Message);
+						window.location.href = "/Wallet/Index";
+					},
+					error: function(request, status, error) {
+						alert(request.responseText);
+					}
+				});
+			});
+		}
+
+	</script>
+}

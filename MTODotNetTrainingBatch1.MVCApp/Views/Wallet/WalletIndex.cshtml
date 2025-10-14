@@ -1,0 +1,39 @@
+﻿@using MTODotNetTrainingBatch1.MVCApp.Controllers
+
+@model List<WalletModel>
+@{
+	int count = 0;
+	
+}
+
+<h1>Total Wallet User List (@Model.Count)</h1>
+
+<a class="btn btn-outline-success" href="Wallet/Create">Create</a>
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th>Action</th>
+			<th>No</th>
+			<th>User Name</th>
+			<th>Mobile Name</th>
+			<td>Balance</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model){
+			<tr>
+				<td>
+					<form asp-controller="Wallet" asp-action="Delete" asp-route-id="@item.WalletId" method="post" onsubmit="return confirm('Delete wallet for @item.Username ?');" style="display:inline">
+						@Html.AntiForgeryToken()
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+					<a href="/Wallet/Edit/@item.WalletId" class="btn btn-warning">Edit</a></td>
+				<td>@(++count)</td>
+				<td>@item.Username</td>
+				<td>@item.MobileNo</td>
+				<td>@item.Balance.ToString("n0")</td>
+			</tr>
+		}
+		
+	</tbody>
+</table>
