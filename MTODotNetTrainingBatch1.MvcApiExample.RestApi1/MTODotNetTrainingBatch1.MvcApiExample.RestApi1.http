@@ -1,0 +1,6 @@
+@MTODotNetTrainingBatch1.MvcApiExample.RestApi1_HostAddress = http://localhost:5036
+
+GET {{MTODotNetTrainingBatch1.MvcApiExample.RestApi1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
